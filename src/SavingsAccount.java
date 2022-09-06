@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class SavingsAccount {
 
     int id;
@@ -31,6 +33,7 @@ public class SavingsAccount {
     }
 
     public static void transferFunds(SavingsAccount saverAccount1, SavingsAccount saverAccount2, double sum) {
+        System.out.println("Transfer of USD " + sum + " from one saver account to another saver account");
         saverAccount1.SavingBalance -= sum;
         saverAccount2.SavingBalance +=sum;
     }
