@@ -2,28 +2,43 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public enum gradingSystem{
-        Excellent,
-        VeryGood,
-        Good,
-        Accepted,
-        Failure;
-        private static gradingSystem[] vals = values();
-        public gradingSystem next()
-        {
-            return vals[(this.ordinal() + 1) % vals.length];
-        }
 
-        public gradingSystem previous()
-        {
-            return vals[(this.ordinal() - 1) % vals.length];
-        }
-
-    }
 
     public static void main(String[] args) {
-        System.out.println(gradingSystem.Good.next());
-        System.out.println(gradingSystem.Good.previous());
-        System.out.println(java.util.Arrays.asList(gradingSystem.values()));
+
+        SavingsAccount savingsAccount1 = new SavingsAccount(3000);
+        SavingsAccount savingsAccount2 = new SavingsAccount(5000);
+
+        System.out.println("Saving Account #1: " + savingsAccount1.getSavingBalance() + "$");
+        System.out.println("Saving Account #2: " + savingsAccount2.getSavingBalance() + "$");
+
+        SavingsAccount.annualInterestRate = 4;
+
+        savingsAccount1.calculateMonthlyInterest();
+        savingsAccount2.calculateMonthlyInterest();
+        System.out.println("New values for deposits: ");
+        System.out.println("Saving Account #1: " + savingsAccount1.getSavingBalance() + "$");
+        System.out.println("Saving Account #2: " + savingsAccount2.getSavingBalance() + "$");
+
+        SavingsAccount.annualInterestRate = 5;
+
+        savingsAccount1.calculateMonthlyInterest();
+        savingsAccount2.calculateMonthlyInterest();
+        System.out.println("New values for deposits: ");
+        System.out.println("Saving Account #1: " + savingsAccount1.getSavingBalance() + "$");
+        System.out.println("Saving Account #2: " + savingsAccount2.getSavingBalance() + "$");
+
+        SavingsAccount.transferFunds(savingsAccount1, savingsAccount2, 700);
+        System.out.println("New values for deposits: ");
+        System.out.println("Saving Account #1: " + savingsAccount1.getSavingBalance() + "$");
+        System.out.println("Saving Account #2: " + savingsAccount2.getSavingBalance() + "$");
+
+
+        Bank bank = new Bank();
+        bank.savingsAccountList.add(savingsAccount1);
+        bank.savingsAccountList.add(savingsAccount2);
+
+        bank.calculateGlobalMonthlyInterest();
     }
+
 }
