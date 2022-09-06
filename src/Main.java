@@ -2,30 +2,28 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static void concatenateValues(Object array[])
-    {
-        String str = "";
-        int sum = 0;
-        ArrayList<Person> people = new ArrayList<Person>();
-        for(int i = 0; i < array.length; i++)
-
+    public enum gradingSystem{
+        Excellent,
+        VeryGood,
+        Good,
+        Accepted,
+        Failure;
+        private static gradingSystem[] vals = values();
+        public gradingSystem next()
         {
-            if(array[i] instanceof String || array[i] instanceof Character) str += array[i] + " ";
-            if(array[i] instanceof Integer) sum += (int) array[i];
-            if(array[i] instanceof Person)
-            {
-                people.add((Person) array[i]);
-            }
+            return vals[(this.ordinal() + 1) % vals.length];
         }
-        System.out.println("Concatenation of all strings and characters: " + str);
-        System.out.println("Sum of all numbers: " + sum);
-        System.out.println("Array with people only:");
-        for(Person p: people)
-            p.print();
+
+        public gradingSystem previous()
+        {
+            return vals[(this.ordinal() - 1) % vals.length];
+        }
+
     }
 
     public static void main(String[] args) {
-        Object[] array = new Object[]{"Today", new Person(), 334, "is", 23, 652, 'a', new Person("Ann", "Jenner", 22, 'F'), "big", "day"};
-        concatenateValues(array);
+        System.out.println(gradingSystem.Good.next());
+        System.out.println(gradingSystem.Good.previous());
+        System.out.println(java.util.Arrays.asList(gradingSystem.values()));
     }
 }
