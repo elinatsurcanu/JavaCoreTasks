@@ -53,7 +53,7 @@ public class Phone {
             { flag = true; e.handle(); counter++; }
         } while(flag && counter<3);
 
-        if(counter>=3) {System.out.print("Unsuccesfully"); System.out.print(" Time: ");
+        if(counter>=3) {System.out.print("Unsuccessfully"); System.out.print(" Time: ");
             LocalDateTime now = LocalDateTime.now();
             System.out.println(dtf.format(now));
             System.exit(0);}
@@ -69,7 +69,7 @@ public class Phone {
             flag = false;
             try{
                 try{
-                    System.out.print("Enter value to top up the phone: ");
+                    System.out.print("Enter amount that you wish to top up your phone: ");
                     System.out.print(" Time: ");
                     LocalDateTime now = LocalDateTime.now();
                     System.out.println(dtf.format(now));
@@ -88,7 +88,7 @@ public class Phone {
             { flag = true; e.handle(); counter++; }
         } while(flag && counter<3);
 
-        if(counter>=3) {System.out.print("Unsuccesfully"); System.out.print(" Time: ");
+        if(counter>=3) {System.out.print("Unsuccessfully"); System.out.print(" Time: ");
             LocalDateTime now = LocalDateTime.now();
             System.out.println(dtf.format(now));
             System.exit(0);}
@@ -105,7 +105,7 @@ public class Phone {
         System.out.print("Your phone number is " + phone); System.out.print(" Time: ");
         LocalDateTime now = LocalDateTime.now();
         System.out.println(dtf.format(now));
-        System.out.print("You would like to charhe it with " + sum + " MDL"); System.out.print(" Time: ");
+        System.out.print("The amount you want to top up your phone: " + sum + " MDL"); System.out.print(" Time: ");
         LocalDateTime now2 = LocalDateTime.now();
         System.out.println(dtf.format(now));
     }
